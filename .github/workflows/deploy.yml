@@ -3,7 +3,7 @@ name: Deploy React App to GitHub Pages
 on:
   push:
     branches:
-      - main  # ili master, zavisno od tvog branch-a
+      - main
 
 jobs:
   build-and-deploy:
@@ -22,6 +22,11 @@ jobs:
 
       - name: Build app
         run: npm run build
+
+      - name: Configure Git user
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
