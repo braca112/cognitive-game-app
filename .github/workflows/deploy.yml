@@ -17,6 +17,10 @@ jobs:
         with:
           node-version: 18
 
+      - name: Set homepage in package.json
+        run: |
+          node -e "let pkg=require('./package.json'); pkg.homepage='https://braca112.github.io/cognitive-game-app'; require('fs').writeFileSync('package.json', JSON.stringify(pkg, null, 2));"
+
       - name: Install dependencies
         run: npm install
 
