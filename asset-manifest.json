@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/cognitive-game-app/static/css/main.f451702c.css",
+    "main.js": "/cognitive-game-app/static/js/main.41518ab5.js",
+    "index.html": "/cognitive-game-app/index.html",
+    "main.f451702c.css.map": "/cognitive-game-app/static/css/main.f451702c.css.map",
+    "main.41518ab5.js.map": "/cognitive-game-app/static/js/main.41518ab5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f451702c.css",
+    "static/js/main.41518ab5.js"
+  ]
+}
