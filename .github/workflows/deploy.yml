@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+      - master
+
+permissions:
+  contents: write
 
 jobs:
   build-and-deploy:
@@ -17,24 +21,15 @@ jobs:
         with:
           node-version: 18
 
-      - name: Set homepage in package.json
-        run: |
-          node -e "let pkg=require('./package.json'); pkg.homepage='https://braca112.github.io/cognitive-game-app'; require('fs').writeFileSync('package.json', JSON.stringify(pkg, null, 2));"
-
       - name: Install dependencies
         run: npm install
 
       - name: Build app
         run: npm run build
 
-      - name: Configure Git user
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GH_PAT }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
-          force_orphan: true
+          publish_branch: gh-pages
